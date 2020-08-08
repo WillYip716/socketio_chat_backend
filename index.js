@@ -6,7 +6,7 @@ const io = require('socket.io')(http);
 
 var cors = require('cors');
 require('dotenv').config();
-const uri = process.env.MONGODB_URI;
+const uri = process.env.MONGDBURL;
 const port = process.env.PORT || 4000;
 
 const Message = require('./models/message');
@@ -42,4 +42,6 @@ io.on('connection',(socket)=>{
     });
 });
 
-http.listen(port,()=>{});
+const server = app.listen(4000, () => {
+    console.log('Listening on port %s', server.address().port)
+  });
