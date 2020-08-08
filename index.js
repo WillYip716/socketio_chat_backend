@@ -4,12 +4,12 @@ const http = require('http').Server(app);
 const path = require('path');
 const io = require('socket.io')(http);
 
+require('dotenv').config();
 const uri = process.env.MONGODB_URI;
 const port = process.env.PORT || 4000;
 
 const Message = require('./models/message');
 const mongoose = require('mongoose');
-const message = require('./models/message');
 
 mongoose.connect(uri,{useUnifiedTopology:true,useNewUrlParser:true,});
 
@@ -39,6 +39,6 @@ io.on('connection',(socket)=>{
     });
 });
 
-http.listener(port,()=>{
+http.listen(port,()=>{
     console.log('listening on *:' + port);
 });

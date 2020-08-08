@@ -4,9 +4,9 @@ const Schema = mongoose.Schema;
 var MessageSchema = new Schema(
     {
         content: {type:String,required:true},
-        author: {type:String, required:true}
+        name: {type:String, required:true}
     },
     { timestamps:true}
 )
 
-module.exports = mongoose.nodel('Message', MessageSchema);
+module.exports = mongoose.model('Message', MessageSchema);
